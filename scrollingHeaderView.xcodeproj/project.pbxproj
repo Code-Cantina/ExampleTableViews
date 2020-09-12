@@ -35,7 +35,7 @@
 		420F0766250CAFD600BAAABB /* DataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSection.swift; sourceTree = "<group>"; };
 		4265EF20250CB44C00462008 /* SimpleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleVC.swift; sourceTree = "<group>"; };
 		4265EF22250CB68100462008 /* SearchingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingVC.swift; sourceTree = "<group>"; };
-		427D1026250CA28200C9B681 /* Scroll Header.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scroll Header.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		427D1026250CA28200C9B681 /* Table Views.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Table Views.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		427D1029250CA28200C9B681 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		427D102B250CA28200C9B681 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		427D1030250CA28200C9B681 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		427D101D250CA28200C9B681 = {
 			isa = PBXGroup;
 			children = (
-				427D1028250CA28200C9B681 /* scrollingHeaderView */,
+				427D1028250CA28200C9B681 /* tableViewExamples */,
 				427D1027250CA28200C9B681 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,22 +97,22 @@
 		427D1027250CA28200C9B681 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				427D1026250CA28200C9B681 /* Scroll Header.app */,
+				427D1026250CA28200C9B681 /* Table Views.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		427D1028250CA28200C9B681 /* scrollingHeaderView */ = {
+		427D1028250CA28200C9B681 /* tableViewExamples */ = {
 			isa = PBXGroup;
 			children = (
+				427D1037250CA28400C9B681 /* Info.plist */,
+				427D1034250CA28400C9B681 /* LaunchScreen.storyboard */,
 				420F0765250CAF3B00BAAABB /* Cells */,
 				420F0764250CAF3300BAAABB /* DataModels */,
 				420F0763250CAF1A00BAAABB /* ViewControllers */,
 				427D103D250CA37D00C9B681 /* Support */,
-				427D1034250CA28400C9B681 /* LaunchScreen.storyboard */,
-				427D1037250CA28400C9B681 /* Info.plist */,
 			);
-			path = scrollingHeaderView;
+			path = tableViewExamples;
 			sourceTree = "<group>";
 		};
 		427D103D250CA37D00C9B681 /* Support */ = {
@@ -143,7 +143,7 @@
 			);
 			name = scrollingHeaderView;
 			productName = scrollingHeaderView;
-			productReference = 427D1026250CA28200C9B681 /* Scroll Header.app */;
+			productReference = 427D1026250CA28200C9B681 /* Table Views.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -354,14 +354,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P3SSC4G2E2;
-				INFOPLIST_FILE = scrollingHeaderView/Info.plist;
+				INFOPLIST_FILE = tableViewExamples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dannycopeland.scrollingHeaderView;
-				PRODUCT_NAME = "Scroll Header";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dannycopeland.tableViewExamples;
+				PRODUCT_NAME = "Table Views";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -373,14 +373,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P3SSC4G2E2;
-				INFOPLIST_FILE = scrollingHeaderView/Info.plist;
+				INFOPLIST_FILE = tableViewExamples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dannycopeland.scrollingHeaderView;
-				PRODUCT_NAME = "Scroll Header";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dannycopeland.tableViewExamples;
+				PRODUCT_NAME = "Table Views";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -2,10 +2,9 @@
 ---
 
 ## Version
----
 + 0.1
 
-## Dependacies 
+## Dependencies 
 
 
 ## Built With

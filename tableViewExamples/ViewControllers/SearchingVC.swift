@@ -6,73 +6,105 @@
 //  Copyright © 2020 Danny Copeland. All rights reserved.
 //
 
+/*
+ Table view with:
+     'featured' top header
+     expandable sections
+     up/down arrow indicator for section headers
+ */
+
 import UIKit
 
 class SearchingVC: UIViewController {
-
+    
     //MARK: - Properties
     var dataSections: [DataSection] = []
     
-    let dataTableCellId = "dataTableCellId"
-    let dataTable: UITableView = {
+    var isSectionOpen: [Bool]!
+    
+    let dataCellId = "dataCellId"
+    let dataTableView: UITableView = {
         let tbl = UITableView(frame: .zero, style: .plain)
         tbl.translatesAutoresizingMaskIntoConstraints = false
+        tbl.backgroundColor = .secondarySystemGroupedBackground
         return tbl
     }()
     
+   
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .secondarySystemBackground
-        self.title = "Search Table View"
+        view.backgroundColor = .secondarySystemGroupedBackground
+        self.title = "Featured Header"
+        self.setupHideKeyboardOnTap()
+        setupDataTable()
         createMockData()
-        setupTable()
         
+        self.isSectionOpen = Array(repeating: false, count: self.dataSections.count)
     }
     
     //MARK: - Data
     private func createMockData(){
         dataSections = [
-            DataSection(title: "One", data: ["One-One", "One-Two", "One-Three", "One-Four", "One-Five", "Once-Six"]),
-            DataSection(title: "Two", data: ["Two-One", "Two-Two", "Two-Three", "Two-Four", "Two-Five"]),
-            DataSection(title: "Three", data: ["Three-One", "Three-Two", "Three-Three", "Three-Four", "Three-Five"]),
-            DataSection(title: "Four", data: ["Four-One", "Four-Two", "Four-Three", "Four-Four", "Four-Five"]),
-            DataSection(title: "Five", data: ["Five-One", "Five-Two", "Five-Three", "Five-Four", "Five-Five"]),
-            DataSection(title: "Six", data: ["Six-One", "Six-Two", "Six-Three", "Six-Four", "Six-Five"]),
-            DataSection(title: "Seven", data: ["Seven-One", "Seven-Two", "Seven-Three", "Seven-Four", "Seven-Five"]),
-            DataSection(title: "Eight", data: ["Eight-One", "Eight-Two", "Eight-Three", "Eight-Four", "Eight-Five"]),
+            DataSection(title: "AAAAAA", data: ["A1","A2","A3","A4","A5"]),
+            DataSection(title: "BBBBBB", data: ["B1","B2","B3","B4","B5", "B6"]),
+            DataSection(title: "CCCCCC", data: ["C1","C2","C3","C4","C5", "C6", "C7"]),
+            DataSection(title: "DDDDDD", data: ["D1","D2","D3","D4","D5", "D6"]),
+            DataSection(title: "EEEEEE", data: ["E1","E2","E3","E4","E5"]),
+            DataSection(title: "FFFFFF", data: ["F1","F2","F3","F4","F5", "F6", "F7"]),
+            DataSection(title: "GGGGGG", data: ["G1","G2","G3","G4","G5", "G6", "G7", "G8"]),
+            DataSection(title: "HHHHHH", data: ["H1","H2","H3","H4","H5"]),
+            DataSection(title: "IIIIII", data: ["I1","I2","I3","I4","I5"]),
+            DataSection(title: "JJJJJJ", data: ["J1","J2","J3","J4","J5"]),
         ]
     }
     
     //MARK: - Setup
-    private func setupTable() {
-        dataTable.dataSource = self
-        dataTable.delegate = self
-        dataTable.register(DataSectionCell.self, forCellReuseIdentifier: dataTableCellId)
+    private func setupDataTable() {
+        dataTableView.register(DataSectionCell.self, forCellReuseIdentifier: dataCellId)
+        dataTableView.dataSource = self
+        dataTableView.delegate = self
         
-        view.addSubview(dataTable)
+        view.addSubview(dataTableView)
         
         NSLayoutConstraint.activate([
-            dataTable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            dataTable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            dataTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            dataTable.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            dataTableView.topAnchor.constraint(equalTo: view.topAnchor),
+            dataTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            dataTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            dataTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-        
     }
+    
 }
 
 //MARK: - Table View Delegates
 extension SearchingVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return dataSections.count + 1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "" : dataSections[section - 1].title
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSections[section].data.count
+        if section > 0 {
+            if isSectionOpen.count >= section {
+                if(isSectionOpen[section - 1]) {
+                    return self.dataSections[section - 1].data.count
+                }
+            }
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: dataTableCellId, for: indexPath) as! DataSectionCell
-        let dataObject = dataSections[indexPath.section].data[indexPath.row]
-        cell.title.text = dataObject
+        let brand = dataSections[indexPath.section - 1].data[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: dataCellId, for: indexPath as IndexPath) as! DataSectionCell
+        cell.title.text = brand
+        
         return cell
     }
     
@@ -80,32 +112,68 @@ extension SearchingVC: UITableViewDelegate, UITableViewDataSource {
         return 50
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return dataSections.count
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 50 : 50
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerSection = dataSections[section]
-        let cellHeaderView = UIView()
-        cellHeaderView.backgroundColor = .systemGreen
+        if section == 0 {
+            //top level header view
+            let topHeaderView = UIView()
+            topHeaderView.backgroundColor = .systemGreen
+            let search = UISearchBar()
+            search.translatesAutoresizingMaskIntoConstraints = false
+            search.showsCancelButton = true
+            topHeaderView.addSubview(search)
+            
+            NSLayoutConstraint.activate([
+                search.topAnchor.constraint(equalTo: topHeaderView.topAnchor),
+                search.leadingAnchor.constraint(equalTo: topHeaderView.leadingAnchor),
+                search.trailingAnchor.constraint(equalTo: topHeaderView.trailingAnchor),
+                search.bottomAnchor.constraint(equalTo: topHeaderView.bottomAnchor),
+            ])
+            
+            return topHeaderView
+            
+        } else {
+            //normal section header view
+            let headerSection = dataSections[section - 1]
+            let headerView = SectionHeaderCell()
+            headerView.sectionTitle.text = headerSection.title
+            
+            let headerGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(headerTapped))
+            headerView.isUserInteractionEnabled = true
+            headerView.addGestureRecognizer(headerGestureRecognizer)
+            headerView.tag = section
+            
+            if isSectionOpen.count >= section {
+                if isSectionOpen[section - 1] {
+                    headerView.arrowImage.transform = CGAffineTransform(rotationAngle: (180 * .pi) / 180)
+                }
+            }
+            
+            let xCoord = Int(self.view.frame.width - 40)
+            let yCoord = 10
+            headerView.arrowImage.frame = CGRect(x: xCoord, y: yCoord, width: 25, height: 25)
+            
+            return headerView
+        }
         
-        let title = UILabel()
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.text = headerSection.title
-        
-        cellHeaderView.addSubview(title)
-        
-        NSLayoutConstraint.activate([
-            title.topAnchor.constraint(equalTo: cellHeaderView.topAnchor),
-            title.leadingAnchor.constraint(equalTo: cellHeaderView.leadingAnchor, constant: 8),
-            title.trailingAnchor.constraint(equalTo: cellHeaderView.trailingAnchor, constant: -8),
-            title.bottomAnchor.constraint(equalTo: cellHeaderView.bottomAnchor),
-        ])
-        
-        return cellHeaderView
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+    //MARK: - Header Tapped, Show/Hide Section
+    @objc func headerTapped(sender: UITapGestureRecognizer) {
+        if let linkSection = sender.view {
+            let section: Int = linkSection.tag
+            if(isSectionOpen[section - 1]) {
+                isSectionOpen[section - 1] = false
+                self.dataTableView.reloadData()
+                
+            } else {
+                self.isSectionOpen[section - 1] = true
+                self.dataTableView.reloadData()
+            }
+        }
     }
+    
 }

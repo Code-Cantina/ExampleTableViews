@@ -19,6 +19,7 @@ class SectionHeaderCell: UIView {
     let arrowImage: UIImageView = {
         let iv = UIImageView(image: UIImage(named: "down_arrow"))
         iv.contentMode = .scaleAspectFit
+        iv.setImageColor(color: .systemGreen)
         return iv
     }()
     
@@ -54,7 +55,21 @@ class SectionHeaderCell: UIView {
 
     }
     
+    //this fires when the device color mode has changed Light/Dark. We need to force update the shadow color
+//    override open func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//         arrowImage.setImageColor(color: .secondarySystemBackground)
+//    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+
+extension UIImageView {
+  func setImageColor(color: UIColor) {
+    let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
+    self.image = templateImage
+    self.tintColor = color
+  }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420C2E80250E002E009098D1 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420C2E7F250E002E009098D1 /* UIViewController+Ext.swift */; };
 		420ED15E250D7CB7007CD7F5 /* SectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420ED15D250D7CB7007CD7F5 /* SectionHeaderCell.swift */; };
 		420ED160250D7CC6007CD7F5 /* FeaturedHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420ED15F250D7CC6007CD7F5 /* FeaturedHeaderCell.swift */; };
 		420ED162250D8588007CD7F5 /* TableOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420ED161250D8588007CD7F5 /* TableOption.swift */; };
@@ -17,6 +18,7 @@
 		420F0767250CAFD600BAAABB /* DataSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F0766250CAFD600BAAABB /* DataSection.swift */; };
 		4265EF21250CB44C00462008 /* SimpleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4265EF20250CB44C00462008 /* SimpleVC.swift */; };
 		4265EF23250CB68100462008 /* SearchingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4265EF22250CB68100462008 /* SearchingVC.swift */; };
+		427796E925131E1700C705FA /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 427796E825131E1700C705FA /* readme.md */; };
 		427D102A250CA28200C9B681 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427D1029250CA28200C9B681 /* AppDelegate.swift */; };
 		427D102C250CA28200C9B681 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427D102B250CA28200C9B681 /* SceneDelegate.swift */; };
 		427D1031250CA28200C9B681 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 427D102F250CA28200C9B681 /* Main.storyboard */; };
@@ -25,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		420C2E7F250E002E009098D1 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		420ED15D250D7CB7007CD7F5 /* SectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderCell.swift; sourceTree = "<group>"; };
 		420ED15F250D7CC6007CD7F5 /* FeaturedHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedHeaderCell.swift; sourceTree = "<group>"; };
 		420ED161250D8588007CD7F5 /* TableOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableOption.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 		420F0766250CAFD600BAAABB /* DataSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSection.swift; sourceTree = "<group>"; };
 		4265EF20250CB44C00462008 /* SimpleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleVC.swift; sourceTree = "<group>"; };
 		4265EF22250CB68100462008 /* SearchingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingVC.swift; sourceTree = "<group>"; };
+		427796E825131E1700C705FA /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		427D1026250CA28200C9B681 /* Table Views.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Table Views.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		427D1029250CA28200C9B681 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		427D102B250CA28200C9B681 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 		427D101D250CA28200C9B681 = {
 			isa = PBXGroup;
 			children = (
+				427796E825131E1700C705FA /* readme.md */,
 				427D1028250CA28200C9B681 /* tableViewExamples */,
 				427D1027250CA28200C9B681 /* Products */,
 			);
@@ -120,6 +125,7 @@
 			children = (
 				427D1029250CA28200C9B681 /* AppDelegate.swift */,
 				427D102B250CA28200C9B681 /* SceneDelegate.swift */,
+				420C2E7F250E002E009098D1 /* UIViewController+Ext.swift */,
 				427D102F250CA28200C9B681 /* Main.storyboard */,
 				427D1032250CA28400C9B681 /* Assets.xcassets */,
 			);
@@ -186,6 +192,7 @@
 			files = (
 				427D1036250CA28400C9B681 /* LaunchScreen.storyboard in Resources */,
 				427D1033250CA28400C9B681 /* Assets.xcassets in Resources */,
+				427796E925131E1700C705FA /* readme.md in Resources */,
 				427D1031250CA28200C9B681 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				420F0762250CAF0100BAAABB /* FeaturedHeaderVC.swift in Sources */,
+				420C2E80250E002E009098D1 /* UIViewController+Ext.swift in Sources */,
 				427D102A250CA28200C9B681 /* AppDelegate.swift in Sources */,
 				420ED160250D7CC6007CD7F5 /* FeaturedHeaderCell.swift in Sources */,
 				427D102C250CA28200C9B681 /* SceneDelegate.swift in Sources */,
@@ -353,14 +361,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P3SSC4G2E2;
+				DEVELOPMENT_TEAM = 6G65MRD2BK;
 				INFOPLIST_FILE = tableViewExamples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dannycopeland.tableViewExamples;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codecantina.tableViewExamples;
 				PRODUCT_NAME = "Table Views";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -372,14 +380,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P3SSC4G2E2;
+				DEVELOPMENT_TEAM = 6G65MRD2BK;
 				INFOPLIST_FILE = tableViewExamples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dannycopeland.tableViewExamples;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codecantina.tableViewExamples;
 				PRODUCT_NAME = "Table Views";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
